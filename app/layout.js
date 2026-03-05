@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Pain Before Pleasure",
+  title: "PB4P",
   description: "Brands & culture",
 };
 
