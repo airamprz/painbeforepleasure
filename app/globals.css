@@ -1,10 +1,114 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Reset serio: evita desbordes y scrolls fantasma */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html,
 body {
   height: 100%;
-  background-color: #000000;
-  color: #ffffff;
+  margin: 0;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden; /* NO scroll horizontal */
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Estructura de página: main + footer */
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+/* Main */
+.main {
+  background: #000;
+  overflow-x: hidden;
+}
+
+/* GRID DESKTOP: 3x3 centrado y "estático" */
+.grid {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+
+  /* centrado vertical y horizontal del conjunto */
+  min-height: calc(100vh - 84px); /* footer con aire */
+  display: grid;
+  place-content: center;
+  place-items: center;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  column-gap: clamp(28px, 4vw, 64px);
+  row-gap: clamp(22px, 3vh, 44px);
+
+  padding: 32px 24px 32px 24px;
+}
+
+/* Celda */
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-decoration: none;
+}
+
+/* Caja fija: centrado visual real */
+.logoBox {
+  width: clamp(220px, 18vw, 280px);
+  height: clamp(140px, 12vw, 190px);
+  position: relative;
+}
+
+/* Imagen centrada dentro de la caja */
+.logo {
+  object-fit: contain;
+}
+
+/* Hover suave */
+@media (hover: hover) {
+  .cell:hover .logoBox {
+    transform: scale(1.04);
+    transition: transform 180ms ease;
+  }
+}
+
+/* Footer con aire */
+.footer {
+  padding: 26px 24px 28px 24px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  user-select: none;
+  background: #000;
+  margin-top: 10px;
+}
+
+/* --------- MOBILE: columna centrada --------- */
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: 1fr;
+
+    width: min(420px, 100%);
+    min-height: auto;
+
+    place-content: start;
+
+    padding: 28px 16px 34px 16px;
+    row-gap: 44px;
+  }
+
+  .logoBox {
+    width: 240px;
+    height: 170px;
+  }
+
+  .footer {
+    padding: 22px 16px 26px 16px;
+    margin-top: 0;
+  }
 }
