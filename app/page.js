@@ -10,7 +10,7 @@ const brands = [
   { name: "XVSTRANGE", url: "https://xvstrange.com", logo: "/brands/xvstrange.png" },
 
   { name: "TrueCbby", url: "https://linktr.ee/TrueCbby", logo: "/brands/truecbbynew.png" },
-  { name: "Trapaholikzzz", url: "https://www.instagram.com/Trapaholikzzz/", logo: "/brands/Trapaholikzzz.png" },
+  { name: "Trapaholikzzz", url: "https://www.instagram.com/Trapaholikzzz/", logo: "/brands/trapaholikzzz.png" },
   { name: "Moneychaserszzz", url: "https://www.instagram.com/moneychaserszzz/", logo: "/brands/moneychaserszzz.png" },
 ];
 
